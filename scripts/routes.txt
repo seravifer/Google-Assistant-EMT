@@ -1,0 +1,56 @@
+28,EMT,28,Ciutat Artista Faller - Mercat Central,,3,,FE0000,FFFFFF
+95,EMT,95,Parc de Capçalera - Ciutat Arts i Ciències,,3,,FE0000,FFFFFF
+4,EMT,4,Natzaret - Pl. de l'Ajuntament,,3,,FE0000,FFFFFF
+6,EMT,6,Torrefiel - Malilla,,3,,FE0000,FFFFFF
+7,EMT,7,Mislata - Fonteta Sant Lluís,,3,,FE0000,FFFFFF
+8,EMT,8,Estació d'Autobusos - Nou Hospital La Fe,,3,,FE0000,FFFFFF
+9,EMT,9,la Torre - Universitats,,3,,FE0000,FFFFFF
+10,EMT,10,Benimaclet - Sant Marcel.lí,,3,,FE0000,FFFFFF
+11,EMT,11,Patraix - Orriols,,3,,FE0000,FFFFFF
+12,EMT,12,Ciutat Artista Faller - Pl. Saragossa,,3,,FE0000,FFFFFF
+13,EMT,13,Fonteta Sant Lluís - Baró de Càrcer,,3,,FE0000,FFFFFF
+14,EMT,14,Forn d'Alcedo/Pinedo - Marqués de Sotelo,,3,,FE0000,FFFFFF
+15,EMT,15,Pinedo - Marqués de Sotelo,,3,,FE0000,FFFFFF
+16,EMT,16,Tavernes Blanques - Pl. de l'Ajuntament,,3,,FE0000,FFFFFF
+18,EMT,18,Malilla - Universitats,,3,,FE0000,FFFFFF
+19,EMT,19,la Malva-rosa - Pl. de l'Ajuntament,,3,,FE0000,FFFFFF
+26,EMT,26,Benifaraig - Poeta Querol,,3,,FE0000,FFFFFF
+27,EMT,27,la Torre - Mercat Central,,3,,FE0000,FFFFFF
+30,EMT,30,Natzaret - Hospital Clínic,,3,,FE0000,FFFFFF
+31,EMT,31,la Malva-rosa - Poeta Querol,,3,,FE0000,FFFFFF
+32,EMT,32,Passeig Marítim - Marqués de Sotelo,,3,,FE0000,FFFFFF
+35,EMT,35,Ciutat Arts i Ciències - Pl. de l'Ajuntament,,3,,FE0000,FFFFFF
+40,EMT,40,Universitats - Estació Nord,,3,,FE0000,FFFFFF
+51,EMT,N1,Pl. de l'Ajuntament - Blasco Ibáñez/la Malva-rosa,,3,,4B66EF,FFFFFF
+52,EMT,N2,Pl. de l'Ajuntament - Primat Reig/Tavernes,,3,,4B66EF,FFFFFF
+53,EMT,N3,Pl. de l'Ajuntament - Ferràn Católic/Benimàmet,,3,,4B66EF,FFFFFF
+54,EMT,N4,Pl. de l'Ajuntament - Av. Cid/Mislata,,3,,4B66EF,FFFFFF
+55,EMT,N5,Pl. de l'Ajuntament - Sant Isidre/la Fontsanta,,3,,4B66EF,FFFFFF
+56,EMT,N6,Pl. de l'Ajuntament - Jesús/la Torre,,3,,4B66EF,FFFFFF
+57,EMT,N7,Pl. de l'Ajuntament - Malilla/la Fonteta,,3,,4B66EF,FFFFFF
+60,EMT,60,Av. Baró de Càrcer - Torrefiel,,3,,FE0000,FFFFFF
+62,EMT,62,Benimàmet - Estació Nord,,3,,FE0000,FFFFFF
+70,EMT,70,la Fontsanta - Alboraia,,3,,FE0000,FFFFFF
+71,EMT,71,la Llum - Pl. de l'Ajuntament,,3,,FE0000,FFFFFF
+72,EMT,72,Sant Isidre - Pl. de l'Ajuntament,,3,,FE0000,FFFFFF
+73,EMT,73,Sant Isidre - Parreta,,3,,FE0000,FFFFFF
+79,EMT,79,Circular - Grans Víes,,3,,FE0000,FFFFFF
+80,EMT,80,Circular - Grans Víes,,3,,FE0000,FFFFFF
+81,EMT,81,Hospital General - Av. Blasco Ibáñez,,3,,FE0000,FFFFFF
+89,EMT,89,Circular - Ronda Trànsits,,3,,FE0000,FFFFFF
+90,EMT,90,Circular - Ronda Trànsits,,3,,FE0000,FFFFFF
+58,EMT,N8,Pl. de l'Ajuntament - Av. Port/Natzaret,,3,,4B66EF,FFFFFF
+50,EMT,N90,Circular - Ronda Trànsits,,3,,4B66EF,FFFFFF
+64,EMT,64,Benicalap - Parc Central,,3,,FE0000,FFFFFF
+59,EMT,N9,Pl. de l'Ajuntament - Mont-Olivet/Cabanyal,,3,,4B66EF,FFFFFF
+67,EMT,67,Pl. de l'Ajuntament - Nou Campanar,,3,,FE0000,FFFFFF
+25,EMT,25,Valencia - El Palmar / El Perellonet,,3,,FE0000,FFFFFF
+48,EMT,N10,Pl. de l'Ajuntament - Ciutat Artista Faller/Camí Montcada,,3,,4B66EF,FFFFFF
+49,EMT,N89,Circular - Ronda Trànsits,,3,,4B66EF,FFFFFF
+94,EMT,94,null,,3,,FE0000,FFFFFF
+92,EMT,92,null,,3,,FE0000,FFFFFF
+39,EMT,99,Palau de Congressos - La Malva-Rosa,,3,,FE0000,FFFFFF
+38,EMT,98,null,,3,,FE0000,FFFFFF
+93,EMT,93,Especial Cementeri,,3,,FE0000,FFFFFF
+5,EMT,5,Interior,,3,,FE0000,FFFFFF
+63,EMT,63,Noves Facultats - Xàtiva,,3,,FE0000,FFFFFF

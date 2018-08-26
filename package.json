@@ -1,0 +1,30 @@
+{
+  "name": "EMT for Google Assistant",
+  "version": "1.0.0",
+  "description": "EMT Valencia app for Google Assistant.",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "start": "node --inspect=5858 -r ts-node/register src/server.ts",
+    "test": "node --inspect=5858 -r ts-node/register src/server.test.ts",
+    "dev": "node ./node_modules/nodemon/bin/nodemon.js"
+  },
+  "keywords": [],
+  "author": "Sergi Ávila",
+  "license": "MIT",
+  "dependencies": {
+    "actions-on-google": "^2.3.0",
+    "express": "^4.16.3",
+    "typed-rest-client": "^1.0.9",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "@types/actions-on-google": "^1.10.2",
+    "@types/xml2js": "^0.4.3",
+    "@types/es6-shim": "^0.31.37",
+    "@types/express": "^4.16.0",
+    "nodemon": "^1.18.3",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.1"
+  }
+}
