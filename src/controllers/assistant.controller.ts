@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { dialogflow } from 'actions-on-google';
 import { EMTService } from '../services/emt.service';
-import * as fs from 'fs';
 import Fuse from 'fuse.js';
+import * as fs from 'fs';
 
 const app = dialogflow();
 const router = Router();
@@ -31,7 +31,6 @@ app.intent('My Next Bus', (conv, _) => {
 
   return geodb.getNextBusTime(760, '93').then((time: any) => {
     conv.ask(answerNextBus(time));
-    conv.ask('¿Necesitas algo más?');
   })
 });
 
@@ -51,8 +50,17 @@ app.intent('Next Bus', (conv, params: any) => {
 
   return geodb.getNextBusTime(stopId, params.busId).then((buses: any) => {
     conv.ask(answerNextBus(buses));
-    conv.ask('¿Necesitas algo más?');
   })
+});
+
+app.intent('My Balance', (conv, params: any) => {
+  console.log('My Balance');
+
+  return geodb.getbalance(params.cardId).then((balance) => {
+    conv.ask(`Te quedan ${balance} viajes`);
+  }).catch(error => {
+    conv.ask('El número de tarjeta no es válido, pruebe con otro.');
+  });
 });
 
 function answerNextBus(buses: any[]) {

@@ -19,6 +19,4 @@ npm run dev
 ngrok http 3000
 ```
 
-3. Create Google Actions project (https://console.actions.google.com)
-6. Create intent and enable fulfillment
-7. Configure fulfillment with ngrok's https url
+3. Configure fulfillment with ngrok's https url
