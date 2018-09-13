@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "start": "node --inspect=5858 -r ts-node/register src/server.ts",
-    "test": "node --inspect=5858 -r ts-node/register src/server.test.ts",
+    "test": "node --inspect=5858 -r ts-node/register test/endpoint.ts",
     "dev": "node ./node_modules/nodemon/bin/nodemon.js",
     "data": "node -r ts-node/register scripts/loadData.ts"
   },

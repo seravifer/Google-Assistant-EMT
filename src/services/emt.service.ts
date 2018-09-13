@@ -1,10 +1,11 @@
-import * as http from 'typed-rest-client/HttpClient';
-import * as xml from 'xml2js';
+import { HttpClient } from 'typed-rest-client/HttpClient';
+import { parseString } from 'xml2js';
 import { parse } from 'node-html-parser';
+import { busesMapper, Bus } from './bus.model';
 
 export class EMTService {
 
-  private httpc = new http.HttpClient('node-api-user-agent');
+  private httpc = new HttpClient('node-api-user-agent');
 
   async getNextBusTime(stopBus: number, busId?: string) {
     let response = await this.httpc.get(`http://www.emtvalencia.es/EMT/mapfunctions/MapUtilsPetitions.php?sec=getSAE&idioma=es&parada=${stopBus}&linea=${busId || ''}&adaptados=false`);
@@ -16,11 +17,11 @@ export class EMTService {
     return await this.parseBalance(await response.readBody());
   }
 
+  // ----------------------------------
   private parseBusTimes(body: any) {
-    return new Promise((resolve) => {
-      xml.parseString(body, { trim: true, explicitArray: false }, (err: any, result: any) => {
-        if ((result.estimacion.parada_linea.bus && result.estimacion.parada_linea.bus.error) || (result.estimacion.solo_parada.bus && result.estimacion.solo_parada.bus.error)) resolve([]);
-        resolve(result.estimacion.parada_linea.bus || result.estimacion.solo_parada.bus || []);
+    return new Promise<Bus[]>((resolve) => {
+      parseString(body, { trim: true, explicitArray: false }, (err: any, result: any) => {
+        resolve(busesMapper(result));
       });
     });
   }

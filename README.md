@@ -5,7 +5,7 @@
 * Dialogflow Console: https://console.dialogflow.com
 * ngrok Console: https://dashboard.ngrok.com/status
 
-## Develope
+## Develop
 
 1. Launch server
 
