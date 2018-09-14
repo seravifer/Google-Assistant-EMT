@@ -2,54 +2,28 @@ import { Router } from 'express';
 import { dialogflow, Table } from 'actions-on-google';
 import { EMTService } from '../services/emt.service';
 import { Bus } from '../services/bus.model';
-import Fuse from 'fuse.js';
-import * as fs from 'fs';
 
 const app = dialogflow();
 const router = Router();
-const geodb = new EMTService();
-
-const fileRoutes = fs.readFileSync('src/data/routes.json', 'utf8');
-const fileStops = fs.readFileSync('src/data/stops.json', 'utf8');
-const jsonRoutes: any[] = JSON.parse(fileRoutes.toString());
-const jsonStops: any[] = JSON.parse(fileStops.toString());
-
-const options = {
-  shouldSort: true,
-  threshold: 0.6,
-  location: 0,
-  distance: 100,
-  maxPatternLength: 32,
-  minMatchCharLength: 1,
-  keys: ["name"]
-};
-const fuse = new Fuse(jsonStops, options);
+const emt = new EMTService();
 
 router.use(app);
-
-app.intent('My Next Bus', (conv, _) => {
-  console.log('My Next Bus');
-
-  return geodb.getNextBusTime(760, '93').then((time: any) => {
-    conv.ask(answerNextBus(time, 0));
-  })
-});
 
 app.intent('Next Bus', (conv, params: any) => {
   console.log('Next Bus');
 
   let stopId: any;
   if (Number.isInteger(+params.place)) {
-    if (!isValidStop(params.place)) return conv.ask('No existe ninguna parada con ese nombre.');
+    if (!emt.isValidStop(params.place)) return conv.ask('No existe ninguna parada con ese nombre.');
     else stopId = params.place;
   } else {
-    stopId = findStopByName(params.place);
+    stopId = emt.findStopByName(params.place);
     if (!stopId) return conv.ask('No existe ninguna parada con ese nombre.')
   }
 
-  if (params.busId && !isValidBus(params.busId)) return conv.ask('No existe ninguna bus con ese nombre.');
+  if (params.busId && !emt.isValidBus(params.busId)) return conv.ask('No existe ninguna bus con ese nombre.');
 
-  return geodb.getNextBusTime(stopId, params.busId).then((buses: Bus[]) => {
+  return emt.getNextBuses(stopId, params.busId).then((buses: Bus[]) => {
     let data = (conv.data as any);
     data.count = 1;
     data.stopId = stopId;
@@ -65,7 +39,7 @@ app.intent('Next Bus - next', (conv, params: any) => {
 
   data.count += 1;
 
-  return geodb.getNextBusTime(data.stopId, data.busId).then((buses: Bus[]) => {
+  return emt.getNextBuses(data.stopId, data.busId).then((buses: Bus[]) => {
     conv.ask(answerNextBus(buses, +data.count - 1));
   })
 });
@@ -75,14 +49,14 @@ app.intent('Next Buses', (conv, params: any) => {
 
   let stopId;
   if (Number.isInteger(params.place)) {
-    if (!isValidStop(params.place)) return conv.ask('No existe ninguna parada con ese nombre.');
+    if (!emt.isValidStop(params.place)) return conv.ask('No existe ninguna parada con ese nombre.');
     else stopId = params.place;
   } else {
-    stopId = findStopByName(params.place);
+    stopId = emt.findStopByName(params.place);
     if (!stopId) return conv.ask('No existe ninguna parada con ese nombre.')
   }
 
-  return geodb.getNextBusTime(stopId).then((buses: Bus[]) => {
+  return emt.getNextBuses(stopId).then((buses: Bus[]) => {
     let list: any = [];
     for (let bus of buses) {
       let row = [];
@@ -103,12 +77,13 @@ app.intent('Next Buses', (conv, params: any) => {
 app.intent('My Balance', (conv, params: any) => {
   console.log('My Balance');
 
-  return geodb.getbalance(params.cardId).then((balance) => {
+  return emt.getbalance(params.cardId).then((balance) => {
     conv.ask(`Te quedan ${balance} viajes`);
-  }).catch(error => {
-    conv.ask('El número de tarjeta no es válido, pruebe con otro.');
+  }).catch(err => {
+    conv.ask('Lo siento, el número de tarjeta no es válido.');
   });
 });
+
 
 function answerNextBus(buses: Bus[], index: number) {
   if (buses.length == 0) {
@@ -120,17 +95,5 @@ function answerNextBus(buses: Bus[], index: number) {
   }
 }
 
-function isValidStop(stopId: number) {
-  return jsonStops.some(e => e.id == stopId);
-}
-
-function isValidBus(busId: number) {
-  return typeof jsonRoutes.some(e => e == busId);
-}
-
-function findStopByName(name: string) {
-  var result: any[] = fuse.search(name);
-  return result.length > 0 ? result[0].id : null;
-}
 
 export const AssistantController = router;
