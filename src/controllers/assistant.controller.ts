@@ -62,7 +62,7 @@ app.intent('My Balance', (conv, params: any) => {
 
   if (!cardId) return conv.ask('¿Cual es el número de tu tarjeta?');
 
-  return emt.getbalance(cardId).then((balance) => {
+  return emt.getbalance(params.cardId || cardId).then((balance) => {
     conv.ask(`Te quedan ${balance} viajes.`);
     if (!data.cardId) {
       conv.ask('Su número de tarjeta se guardará para no tener que repetirlo.');
