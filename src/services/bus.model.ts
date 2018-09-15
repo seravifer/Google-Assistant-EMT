@@ -13,7 +13,7 @@ export function busesMapper(body: any) {
       let result: Bus[] = [];
 
       if ((data.estimacion.parada_linea.bus && data.estimacion.parada_linea.bus.error) ||
-        (data.estimacion.solo_parada.bus && data.estimacion.solo_parada.bus.error)) return [];
+        (data.estimacion.solo_parada.bus && data.estimacion.solo_parada.bus.error)) resolve([]);
 
       for (let bus of (data.estimacion.parada_linea.bus || data.estimacion.solo_parada.bus)) {
         let newBus: Bus = {
