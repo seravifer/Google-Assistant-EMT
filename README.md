@@ -1,4 +1,4 @@
-# EMT Server for Google Assistant.
+# EMT and Metro Valencia service for Google Assistant
 
 * GCP Console: https://console.cloud.google.com
 * Actions Console: https://console.actions.google.com
