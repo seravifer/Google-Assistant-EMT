@@ -1,6 +1,6 @@
 import { HttpClient } from 'typed-rest-client/HttpClient';
-import { busesMapper } from './bus.model';
-import { balanceMapper } from './balance.model';
+import { busesMapper } from '../model/bus.model';
+import { balanceMapper } from '../model/balance.model';
 import Fuse from 'fuse.js';
 import * as fs from 'fs';
 

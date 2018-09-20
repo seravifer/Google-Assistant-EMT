@@ -1,7 +1,7 @@
 import { EMTService } from '../src/services/emt.service';
+import { MetroService } from '../src/services/metro.service';
 
-const geodb = new EMTService();
+const emt = new EMTService();
+const metro = new MetroService();
 
-geodb.getNextBusTime(760).then((buses: any) => {
-    console.log(buses);
-});
+metro.getbalance(3695976254).then((res: any) => console.log(res));

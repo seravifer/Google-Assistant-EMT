@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { dialogflow, Table } from 'actions-on-google';
 import { EMTService } from '../services/emt.service';
-import { Bus } from '../services/bus.model';
+import { Bus } from '../model/bus.model';
 
 const app = dialogflow();
 const router = Router();
@@ -109,4 +109,4 @@ function getStopId(params: any) {
 }
 
 
-export const AssistantController = router;
+export const EMTController = router;
